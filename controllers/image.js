@@ -17,7 +17,7 @@ app.models
 const handleImagePut = (req, res, db) => {
 	const { id } = req.body;
 	db('users').where('id', '=', id)								/*Nur ein =, weil hier SQL Syntax*/
-		.increment('entries',1)
+		.increment('entries', 1)
 		.returning('entries')
 		.then(entries => {
 			res.json(entries[0]);
@@ -26,5 +26,6 @@ const handleImagePut = (req, res, db) => {
 }
 
 module.exports = {
-	handleImagePut: handleImagePut
+	handleImagePut: handleImagePut,
+	handleApiCall: handleApiCall
 };
