@@ -10,7 +10,7 @@ const handleRegister = (req, res, db, bcrypt) => {						/*Durch Verknüpfung in 
 				email: email
 			})
 			.into('login')
-			returning('email')
+			.returning('email')
 			.then(loginEmail=> {
 				return trx('users')
 				.returning('*')
